@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.3
   creationTimestamp: null
-  name: aws.ocean_aws.spotinst-ocean-aws.upbound.io
+  name: aws.ocean-aws.spotinst-ocean-aws.upbound.io
 spec:
-  group: ocean_aws.spotinst-ocean-aws.upbound.io
+  group: ocean-aws.spotinst-ocean-aws.upbound.io
   names:
     categories:
     - crossplane
