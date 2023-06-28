@@ -1,13 +1,35 @@
 apiVersion: ocean_aws.github.upbound.io/v1alpha1
-kind: ocean_aws
+kind: Aws
 metadata:
   name: hello-crossplane
 spec:
   forProvider:
     description: "Managed with Crossplane Github Provider (generated with Upjet)"
     visibility: public
-    template:
-      - owner: upbound
-        repository: upjet-provider-template
+    cluster:
+      - name: terraform-2
+      - controllerClusterId: terraform-2
+      - region: us-west-2
+      - capacity:
+        minimum: 1
+        maximum: 5
+        target: 2
+      - compute:
+          subnetIds:
+            - subnet-4333093a
+            - subnet-8ab89cc1
+            - subnet-42f1e418
+            - subnet-e623aecd
+          instanceTypes:
+             whitelist:
+              - t2.micro
+          launchSpecification:
+            securityGroupIds:
+              - sg-0d9d4e56949857d81
+            iamInstanceProfile:
+              name:
+               eks-0ac22b2d-42db-6acf-bfb9-784110a9065f
+            imageId:
+              ami-043ae9e91af48f40a
   providerConfigRef:
     name: default
